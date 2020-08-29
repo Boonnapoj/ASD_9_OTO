@@ -3,7 +3,7 @@
 <!--
     Name of the app on GAE
 -->
- <application>asd-1-9-oto</application>
+ <application>ASD-1-9-OTO</application>
  <version>1</version>
  <runtime>java8</runtime>
  
