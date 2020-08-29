@@ -52,19 +52,14 @@
                 <groupId>com.google.appengine</groupId>
                 <artifactId>appengine-maven-plugin</artifactId>
                 <version>1.9.65</version>
-                <configuration>
-                    <enableJarClasses>false</enableJarClasses>
-                    <port>8181</port>
-                    <address>0.0.0.0</address>
-                </configuration>    
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8</version>
+                <version>3.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                     <compilerArguments>
                         <endorseddirs>${endorsed.dir}</endorseddirs>
                     </compilerArguments>
@@ -100,7 +95,7 @@
                             <goal>copy</goal>
                         </goals>
                         <configuration>
-                            <artifactItems>
+                               <artifactItems>
                                 <artifactItem>
                                     <groupId>com.github.jsimone</groupId>
                                     <artifactId>webapp-runner</artifactId>
@@ -113,9 +108,9 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.jvnet.jax-ws-commons</groupId>
-                <artifactId>jaxws-maven-plugin</artifactId>
-                <version>2.3</version>
+                 <groupId>org.jvnet.jax-ws-commons</groupId>
+    <artifactId>jaxws-maven-plugin</artifactId>
+    <version>2.3</version>
             </plugin>
         </plugins>
     </build>
