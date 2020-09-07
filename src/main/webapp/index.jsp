@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : 07/04/2020, 3:08:55 PM
-    Author     : peter
+    Author     : diamo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -17,7 +17,7 @@
         <div class="home_page">
 
             <div class="home_content">
-                <h1 class="index_h1">IoTBay Home Page</h1>
+                <h1 class="index_h1">Home Page</h1>
                 <a class="button" href="register.jsp">Register</a>
                 <a class="button" href="login.jsp">Login</a>
             </div>

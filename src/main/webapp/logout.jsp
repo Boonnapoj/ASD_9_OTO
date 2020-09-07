@@ -1,7 +1,7 @@
 <%-- 
     Document   : logout
     Created on : 28/04/2020, 3:52:46 PM
-    Author     : peter
+    Author     : diamo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
