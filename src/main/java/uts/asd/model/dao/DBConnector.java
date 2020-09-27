@@ -4,10 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- *
- * @author webdevelopacc
- */
 public class DBConnector extends DB {
 
     public DBConnector() throws ClassNotFoundException, SQLException {

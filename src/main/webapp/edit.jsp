@@ -1,8 +1,3 @@
-<%-- 
-    Document   : edit
-    Created on : 28/04/2020, 3:55:24 PM
-    Author     : peter
---%>
 
 <%@page import="uts.asd.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

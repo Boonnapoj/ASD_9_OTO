@@ -7,10 +7,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import uts.asd.model.User;
 
-/**
- *
- * @author webdevelopacc
- */
 public class UserDBManager {
 
     private Statement st;

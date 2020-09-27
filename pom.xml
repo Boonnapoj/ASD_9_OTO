@@ -16,12 +16,12 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     
-    <dependencies>
+    <dependencies>  
         <dependency>
-            <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-api-1.0-sdk</artifactId>
-            <version>1.9.65</version>
-        </dependency>    
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>2.12.3</version>
+        </dependency>
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongodb-driver</artifactId>
@@ -43,16 +43,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>com.google.cloud.tools</groupId>
-                <artifactId>appengine-maven-plugin</artifactId>
-                <version>2.2.0</version>
-            </plugin>
-            <plugin>
-                <groupId>com.google.appengine</groupId>
-                <artifactId>appengine-maven-plugin</artifactId>
-                <version>1.9.65</version>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -95,7 +85,7 @@
                             <goal>copy</goal>
                         </goals>
                         <configuration>
-                               <artifactItems>
+                            <artifactItems>
                                 <artifactItem>
                                     <groupId>com.github.jsimone</groupId>
                                     <artifactId>webapp-runner</artifactId>
@@ -108,9 +98,9 @@
                 </executions>
             </plugin>
             <plugin>
-                 <groupId>org.jvnet.jax-ws-commons</groupId>
-    <artifactId>jaxws-maven-plugin</artifactId>
-    <version>2.3</version>
+                <groupId>org.jvnet.jax-ws-commons</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>2.3</version>
             </plugin>
         </plugins>
     </build>

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 07/04/2020, 3:08:55 PM
-    Author     : diamo
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

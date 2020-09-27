@@ -1,9 +1,3 @@
-<%-- 
-    Document   : main.jsp
-    Created on : 28/04/2020, 2:17:35 PM
-    Author     : peter
---%>
-
 <%@page import="uts.asd.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

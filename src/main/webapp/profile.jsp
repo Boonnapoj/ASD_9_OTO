@@ -1,9 +1,3 @@
-<%-- 
-    Document   : profile
-    Created on : 01/05/2020, 11:48:55 AM
-    Author     : peter
---%>
-
 <%@page import="uts.asd.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

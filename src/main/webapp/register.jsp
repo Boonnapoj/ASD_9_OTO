@@ -1,9 +1,3 @@
-<%-- 
-    Document   : register
-    Created on : 07/04/2020, 2:48:47 PM
-    Author     : peter
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

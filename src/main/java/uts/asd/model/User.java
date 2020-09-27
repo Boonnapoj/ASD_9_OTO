@@ -1,15 +1,9 @@
- /*
-* Student is a JavaBean that stores name, email, password, and Date of birth
- */
+
 package uts.asd.model;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author peter
- */
 public class User {
     private String email;
     private String name;
