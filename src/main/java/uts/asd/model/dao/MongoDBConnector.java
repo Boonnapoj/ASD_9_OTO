@@ -42,7 +42,7 @@ public class MongoDBConnector {
         }
     } 
     private void connect() throws UnknownHostException {
-        uri = new MongoClientURI("mongodb://" + owner + ":" + password + "@ds051943.mlab.com:51943/heroku_91qr7kht");
+        uri = new MongoClientURI("mongodb://" + owner + ":" + password + "");
         client = new MongoClient(uri);
         db = client.getDatabase(uri.getDatabase());
     }
@@ -59,7 +59,9 @@ public class MongoDBConnector {
     public MongoClient getClient() {
         return client;
     }
-    
 
+    public MongoDatabase getDb() {
+        return db;
+    }
     
 }
