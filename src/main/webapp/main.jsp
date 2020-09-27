@@ -8,6 +8,7 @@
         <title>Main Page</title>
     </head>
     <body>
+        <h1>Order Takeaway Online</h1>
             <%
                 User user = (User) session.getAttribute("user");
                 String email = user.getEmail();
@@ -15,7 +16,7 @@
                 String perm = user.getPermission();
             %>
             
-        <h1>User Dashboard</h1>
+        <h2>User Dashboard</h2>
         <hr>
         <div class="main_btn">
             <a class="button" href="EditServlet?email='<%=email%>'&password='<%=pass%>'&permission='<%=perm%>'">Account</a>

@@ -12,11 +12,16 @@
         <link rel="stylesheet" href="css/demo.css">
         <title>mLab Login</title>
     </head>
+    <%
+        String status = request.getParameter("status");
+        %>
     <body>
         <div>
             <form class="form" action="ConnServlet" method="post">
                 <h2>mLab Admin Login: </h2>
-                <div>
+                <div> status = <%=status%>
+                </div>    
+                <div>   
                 <input placeholder ="Admin ID" name="adminemail" required="true">
                 </div>
                 <div>
@@ -24,9 +29,6 @@
                 </div>
                 <div>
                     <input type="submit" value="Connect" class="button">
-                </div>
-                <div>
-                    <a  <a class="button" href="index.jsp">Index</a>
                 </div>
             </form>
         </div>
