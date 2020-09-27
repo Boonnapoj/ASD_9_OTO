@@ -22,8 +22,9 @@ public class User {
     }
     
     public static void updateUser(HttpSession session, HttpServletRequest request, User user) {
-        String name = request.getParameter("name");
+
         String email = request.getParameter("email");
+        String name = request.getParameter("name");
         String password = request.getParameter("password");
         String status = request.getParameter("status");
         String permission = request.getParameter("permission");

@@ -1,8 +1,8 @@
 package uts.asd.controller.userController;
 
+import com.mongodb.MongoException;
 import java.io.IOException;
 
-import java.sql.SQLException;
 
 import java.util.logging.Level;
 
@@ -19,8 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import uts.asd.model.User;
+import uts.asd.model.dao.MongoDBConnector;
 
-import uts.asd.model.dao.UserDBManager;
 
 public class UpdateServlet extends HttpServlet {
 
@@ -38,18 +38,18 @@ public class UpdateServlet extends HttpServlet {
         String permission = request.getParameter("permission");
         User user = new User(email, name, password, status, permission);
         //5- retrieve the manager instance from session      
-        UserDBManager manager = (UserDBManager) session.getAttribute("manager");
+         MongoDBConnector manager = (MongoDBConnector) session.getAttribute("manager");
         try {
             if (user != null) {
                 session.setAttribute("user", user);
-                manager.updateUser(email, name, password);
+                manager.updateByEmail(email, name, password);
                 session.setAttribute("update", "Update was successful");
                 request.getRequestDispatcher("edit.jsp").include(request, response);
             } else {
                 session.setAttribute("update", "Update was not successful");
                 request.getRequestDispatcher("edit.jsp").include(request, response);
             }
-        } catch (SQLException ex) {
+        } catch (MongoException ex) {
             Logger.getLogger(EditServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         response.sendRedirect("edit.jsp");

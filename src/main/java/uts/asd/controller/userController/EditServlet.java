@@ -1,8 +1,8 @@
 package uts.asd.controller.userController;
 
+import com.mongodb.MongoException;
 import java.io.IOException;
 
-import java.sql.SQLException;
 
 import java.util.logging.Level;
 
@@ -19,8 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import uts.asd.model.User;
+import uts.asd.model.dao.MongoDBConnector;
 
-import uts.asd.model.dao.UserDBManager;
 
 public class EditServlet extends HttpServlet {
     
@@ -30,13 +30,11 @@ public class EditServlet extends HttpServlet {
 
         HttpSession session = request.getSession();   
         String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        String permission = request.getParameter("permission");
-        UserDBManager manager = (UserDBManager) session.getAttribute("manager");
+        MongoDBConnector manager = (MongoDBConnector) session.getAttribute("manager");
         
         User user = null;
         try {
-            user = manager.findUser(email, password, permission);
+            user = manager.getUser(email);
             if (user != null) {
                 session.setAttribute("user", user);
                 request.getRequestDispatcher("edit.jsp").include(request, response);
@@ -44,9 +42,9 @@ public class EditServlet extends HttpServlet {
                 session.setAttribute("existErr", "User does not exist in the Database!");
                 request.getRequestDispatcher("edit.jsp").include(request, response);
             }
-        } catch (SQLException ex) {
+        } catch (MongoException ex) {
             Logger.getLogger(EditServlet.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println(ex.getErrorCode() + " and " + ex.getMessage());
+            System.out.println(ex.getCode() + " and " + ex.getMessage());
         }
         request.getRequestDispatcher("edit.jsp").include(request, response);
     }

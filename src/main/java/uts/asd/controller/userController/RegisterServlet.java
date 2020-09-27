@@ -1,8 +1,7 @@
 package uts.asd.controller.userController;
 
+import com.mongodb.MongoException;
 import java.io.IOException;
-
-import java.sql.SQLException;
 
 import java.util.logging.Level;
 
@@ -17,10 +16,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import javax.servlet.http.HttpSession;
+import org.bson.Document;
 
 import uts.asd.model.User;
 
-import uts.asd.model.dao.UserDBManager;
+import uts.asd.model.dao.MongoDBConnector;
 
 public class RegisterServlet extends HttpServlet {
 
@@ -36,7 +36,7 @@ public class RegisterServlet extends HttpServlet {
         String status = "active";
         String permission = "customer";
         
-        UserDBManager manager = (UserDBManager) session.getAttribute("manager");
+        MongoDBConnector manager = (MongoDBConnector) session.getAttribute("manager");
         validator.clear(session);
 
         if (!validator.validateEmail(email)) {
@@ -50,17 +50,17 @@ public class RegisterServlet extends HttpServlet {
             request.getRequestDispatcher("register.jsp").include(request, response);
         } else {
             try {
-                User exist = manager.findUser(email, password, permission);
+                Document exist = manager.findByEmail(email);
                 if (exist != null) {
                     session.setAttribute("existErr", "User already exists in the Database");
                     request.getRequestDispatcher("register.jsp").include(request, response);
                 } else {
-                    manager.addUser(email, name, password, status, permission);
                     User user = new User(email, name, password, status, permission);
+                    manager.add(user);
                     session.setAttribute("user", user);
                     request.getRequestDispatcher("main.jsp").include(request, response);
                 }
-            } catch (SQLException ex) {
+            } catch (MongoException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
