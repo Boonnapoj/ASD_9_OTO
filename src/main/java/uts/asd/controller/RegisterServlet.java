@@ -1,4 +1,4 @@
-package uts.asd.controller.userController;
+package uts.asd.controller;
 
 import com.mongodb.MongoException;
 import java.io.IOException;
