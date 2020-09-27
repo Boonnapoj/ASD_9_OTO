@@ -31,7 +31,7 @@ public class MongoDBConnector {
     private MongoDatabase db;
     private String owner;
     private String password;
-    private String connectionStringPostfix="";
+    private String connectionStringPostfix="@ds051943.mlab.com:51943/heroku_91qr7kht";
     
     public MongoDBConnector(String owner, String password) throws UnknownHostException {
         this.owner = owner;
@@ -44,7 +44,7 @@ public class MongoDBConnector {
         }
     } 
     private void connect() throws UnknownHostException {
-        uri = new MongoClientURI("mongodb://" + owner + ":" + password + "");
+        uri = new MongoClientURI("mongodb://" + owner + ":" + password + connectionStringPostfix);
         client = new MongoClient(uri);
         db = client.getDatabase(uri.getDatabase());
     }
