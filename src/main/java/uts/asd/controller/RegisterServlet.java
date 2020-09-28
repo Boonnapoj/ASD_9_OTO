@@ -49,8 +49,7 @@ public class RegisterServlet extends HttpServlet {
             request.getRequestDispatcher("register.jsp").include(request, response);
         } else {
             try {
-                User exist = manager.getUser(email);
-                if (exist != null) {
+                if (manager.getUser(email) != null) {
                     session.setAttribute("existErr", "User already exists in the Database");
                     request.getRequestDispatcher("register.jsp").include(request, response);
                 } else {
