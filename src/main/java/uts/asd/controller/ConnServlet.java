@@ -30,6 +30,7 @@ public class ConnServlet extends HttpServlet {
         
         session.setAttribute("status", status);
         session.setAttribute("connector", connector);
+        session.setAttribute("manager", connector);
         RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
         rs.forward(request, response);
                 
