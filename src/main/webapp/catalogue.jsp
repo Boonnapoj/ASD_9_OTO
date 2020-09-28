@@ -16,18 +16,16 @@
         <title>device management Page</title>
     </head>
     <body>
-        <h1>Search Device</h1>
+        <h1>Catalogue</h1>
         <%
             ArrayList<Restaurant> restaurants = (ArrayList<Restaurant>) session.getAttribute("restaurants");
         %>
         <table>
             <thead>
-                <th>ID</th>
                 <th>Name</th>
-                <th>Price</th>
-                <th>Type</th>
-                <th>In Stock</th>
-                <th>   </th>
+                <th>Address</th>
+                <th>BusinessHour</th>
+                <th>Check food</th>
             </thead>
             <tbody>
               

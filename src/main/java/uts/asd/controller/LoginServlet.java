@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.bson.Document;
 
 import uts.asd.model.User;
 import uts.asd.model.dao.MongoDBConnector;
@@ -29,24 +28,13 @@ public class LoginServlet extends HttpServlet {
         String permission = request.getParameter("permission");
         //3- retrieve the manager instance from session
          MongoDBConnector manager = (MongoDBConnector) session.getAttribute("manager");
-        // Conn connection = (Connection)session.getAttribute("conn");
+       
 
         User user = null;
         validator.clear(session);
         
-        if (permission.equals("anony")){
-            session.setAttribute("user", user);
-            request.getRequestDispatcher("main.jsp").include(request, response);
-            return; // dosen't work
-        }
-
-        try {
-            Document found = manager.findByEmail(email);
-            user = manager.getUser(found.getString("Email"));
-        } catch (MongoException ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+      
+        
         if (!validator.validateEmail(email)) {
             session.setAttribute("emailErr", "Error: Email format incorrect");
             request.getRequestDispatcher("login.jsp").include(request, response);
@@ -60,8 +48,15 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("login.jsp").include(request, response);
         } 
         else {
+            try {
+            user = manager.getUser(email);
             session.setAttribute("user", user);
             request.getRequestDispatcher("main.jsp").include(request, response);
+        } catch (MongoException ex) {
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+            
         }
     }
 }
