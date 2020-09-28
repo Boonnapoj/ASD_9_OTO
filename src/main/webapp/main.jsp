@@ -30,9 +30,7 @@
         <div>
             <jsp:include page="catalogue.jsp" flush="true"/>
         </div>
-        <div>    
-            <jsp:include page="profile.jsp" flush="true"/>
-        </div>
+        
        
     </body>
 </html>

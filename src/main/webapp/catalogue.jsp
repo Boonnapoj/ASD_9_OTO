@@ -4,6 +4,7 @@
     Author     : diamo
 --%>
 
+<%@page import="uts.asd.model.User"%>
 <%@page import="uts.asd.model.Restaurant"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,33 +13,49 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Catalogue/<title>
-     <link rel="stylesheet" href="css/demo.css">
-        <title>device management Page</title>
-    </head>
-    <body>
-        <h1>Catalogue</h1>
-        <%
-            ArrayList<Restaurant> restaurants = (ArrayList<Restaurant>) session.getAttribute("restaurants");
-        %>
-        <table>
-            <thead>
-                <th>Name</th>
-                <th>Address</th>
-                <th>BusinessHour</th>
-                <th>Check food</th>
-            </thead>
-            <tbody>
-              
-                <% for(Restaurant restaurant : restaurants){ %>
-                <tr>
-                    <td><%=restaurant.getName()%></td>
-                    <td><%=restaurant.getAddress()%></td>
-                    <td><%=restaurant.getBusinessHour()%></td>
-                
+                <link rel="stylesheet" href="css/demo.css">
+                <title>device management Page</title>
+                </head>
+                <body>
+                    <h1>Catalogue</h1>
+                    <%
+                        User user = (User) session.getAttribute("user");
+                        String email = user.getEmail();
+                        String pass = user.getPassword();
+                        String perm = user.getPermission();
+                        ArrayList<Restaurant> restaurants = (ArrayList<Restaurant>) session.getAttribute("restaurants");
+                    %>
+                    <table>
+                        <thead>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>BusinessHour</th>
+                        <th>Check food</th>
+                        </thead>
+                        <tbody>
+                            <% if (perm.equals("staff")) { %>
+                            <% for (Restaurant restaurant : restaurants) {%>
+                            <tr>
+                                <td><%=restaurant.getName()%></td>
+                                <td><%=restaurant.getAddress()%></td>
+                                <td><%=restaurant.getBusinessHour()%></td>
 
-                </tr>
-                <% } %>
-            </tbody>
-        </table>
-    </body>
-</html>
+
+                            </tr>
+                            <% } %>
+                            <% } else { %>
+                            <% for (Restaurant restaurant : restaurants) {%>
+                            <tr>
+                                <td><%=restaurant.getName()%></td>
+                                <td><%=restaurant.getAddress()%></td>
+                                <td><%=restaurant.getBusinessHour()%></td>
+
+
+                            </tr>
+                            <% } %>
+
+                            <% }%>
+                        </tbody>
+                    </table>
+                </body>
+                </html>
