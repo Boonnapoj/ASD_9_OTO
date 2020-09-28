@@ -46,6 +46,6 @@ public class EditServlet extends HttpServlet {
             Logger.getLogger(EditServlet.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex.getCode() + " and " + ex.getMessage());
         }
-        request.getRequestDispatcher("edit.jsp").include(request, response);
+       
     }
 }

@@ -33,27 +33,7 @@
                         <th>Check food</th>
                         </thead>
                         <tbody>
-                            <% if (perm.equals("staff")) { %>
-                            <% for (Restaurant restaurant : restaurants) {%>
-                            <tr>
-                                <td><%=restaurant.getName()%></td>
-                                <td><%=restaurant.getAddress()%></td>
-                                <td><%=restaurant.getBusinessHour()%></td>
-                                <td> 
-                                    <a href="updateRestaurant.jsp?name=<%=restaurant.getName()%>
-                                       &address=<%=restaurant.getAddress()%>&businessHour=<%=restaurant.getBusinessHour()%>">Update</a>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="DeleteRestaurantServlet?id=<%=restaurant.getName()%>">Delete</a>
-                                </td>
-
-
-
-                            </tr>
-                            <% } %>
-                            <tr>
-                        <a href="createRestaurant.jsp">Create</a>
-                        </tr>
-                        <% } else { %>
+                            
                         <% for (Restaurant restaurant : restaurants) {%>
                         <tr>
                             <td><%=restaurant.getName()%></td>
@@ -65,7 +45,7 @@
                         </tr>
                         <% } %>
 
-                        <% }%>
+                       
                         </tbody>
                     </table>
                 </body>

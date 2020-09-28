@@ -27,8 +27,12 @@
         <p style="text-align: right; color: yellow; "> 
             <i>You are logged in as ${user.name} &lt; ${user.email} &gt; &lt; ${user.permission} &gt;</i>
         </p>
-        <div>
-            <jsp:include page="catalogue.jsp" flush="true"/>
+        <div><% if (perm.equals("staff")) { %>
+                <jsp:include page="catalogue_staff.jsp" flush="true" />
+            <% } else { %>
+                <jsp:include page="catalogue_customer.jsp" flush="true" />
+            <% } %>
+            
         </div>
         
        
