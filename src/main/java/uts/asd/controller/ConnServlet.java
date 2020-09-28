@@ -30,7 +30,8 @@ public class ConnServlet extends HttpServlet {
         
         session.setAttribute("status", status);
         session.setAttribute("connector", connector);
-        session.setAttribute("manager", connector);
+        MongoDBConnector manager = connector;
+        session.setAttribute("manager", manager);
         RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
         rs.forward(request, response);
                 
