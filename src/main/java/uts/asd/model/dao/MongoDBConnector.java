@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.bson.Document;
 import org.bson.conversions.Bson;
+import uts.asd.model.Restaurant;
 
 import uts.asd.model.User;
 import uts.asd.model.Users;
@@ -26,6 +27,7 @@ import uts.asd.model.Users;
 public class MongoDBConnector {
     
     private List<Document> users = new ArrayList();
+    private List<Document> restaurants = new ArrayList();
     private MongoClientURI uri;
     private MongoClient client;
     private MongoDatabase db;
@@ -110,6 +112,50 @@ public class MongoDBConnector {
     public MongoDatabase getDb() {
         return db;
     }
+     public void addRestaurant(Restaurant restaurant) {
+        restaurants.add(new Document("_id", (restaurants.size()+1)).append("RName", restaurant.getName()).append("Address", restaurant.getAddress()).append("BusinessHour", restaurant.getBusinessHour()));
+        MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
+        restaurantlist.insertMany(restaurants);
+    }
+     public Document findByRestaurantName(String name){
+        MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
+        Document found = (Document) restaurantlist.find(new Document("RName", name)).first();
+        return found;
+    }
+      public void updateRestaurantName(String name, String address, String businessHour) {
+        MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
+        if (findByRestaurantName(name) != null){
+            Document restaurant = findByRestaurantName(name); 
+            Bson updateValue = new Document("RName", name).append("Address", address).append("BusinessHour", businessHour);
+            Bson updateOperation = new Document("$set", updateValue);
+            restaurantlist.updateOne(restaurant, updateOperation);
+        }
+        
+    }
+       public void deleteRestaurant(String name) {
+           MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
+             if (findByRestaurantName(name) != null){
+                Document restaurant = findByRestaurantName(name); 
+                 restaurantlist.deleteOne(restaurant);
+            }
+    }
+     public Restaurant getRestaurant(String name){
+        MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
+        Restaurant restaurant = null;
+         if (findByRestaurantName(name) != null){
+             Document found = findByRestaurantName(name);
+             restaurant = new Restaurant(name, found.getString("Address"), found.getString("BusinessHour"));
+         }
+        return restaurant;
+    }
 
-    
+    public ArrayList<Restaurant> findRestaurants(String name) {
+        ArrayList<Restaurant> results  = new ArrayList();; 
+        MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
+        ArrayList<Document> found = (ArrayList<Document>) restaurantlist.find();
+        for (Document d:found){
+            results.add(getRestaurant(d.getString("Rname")));
+        }
+        return  results;
+    }
 }
