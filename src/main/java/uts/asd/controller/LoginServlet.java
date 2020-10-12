@@ -19,15 +19,12 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
 
-        //1- retrieve the current session
         HttpSession session = request.getSession();
-        //2- create an instance of the Validator class
         Validator validator = new Validator();
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String permission = request.getParameter("permission");
-        //3- retrieve the manager instance from session
-         MongoDBConnector manager = (MongoDBConnector) session.getAttribute("manager");
+        MongoDBConnector manager = (MongoDBConnector) session.getAttribute("manager");
 
 
         User user = null;
