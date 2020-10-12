@@ -19,10 +19,6 @@
                 <body>
                     <h1>Catalogue</h1>
                     <%
-                        User user = (User) session.getAttribute("user");
-                        String email = user.getEmail();
-                        String pass = user.getPassword();
-                        String perm = user.getPermission();
                         ArrayList<Restaurant> restaurants = (ArrayList<Restaurant>) session.getAttribute("restaurants");
                     %>
                     <table>
