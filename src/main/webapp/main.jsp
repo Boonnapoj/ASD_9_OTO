@@ -27,6 +27,7 @@
         <p style="text-align: right; color: yellow; "> 
             <i>You are logged in as ${user.name} &lt; ${user.email} &gt; &lt; ${user.permission} &gt;</i>
         </p>
+        <div>
          <form action="ReadRestaurantServlet" method="post">
             <table>
                 <tr><td>Search Condition</td></tr>
@@ -34,7 +35,7 @@
                 <tr><input class="button" type="submit" value="Search"></tr>
             </table>
             </form>
-        <div>
+        
           <% if (perm.equals("staff")) { %>
            <jsp:include page="catalogue_staff.jsp" flush="true" /> 
            <% } else { %>
