@@ -15,7 +15,7 @@
             String update = (String) request.getParameter("update");
             if (update == null) 
             {
-                update = "yes";
+                update = "no";
             }
             if (!update.equals("yes")) { %>
         <h1 class="edit_h1">Edit User Information</h1>
@@ -30,7 +30,7 @@
                 <tr><td>Password:</td><td>${user.getPassword()}</td></tr>
                 <td>
                     <input type="hidden" name="update" value="yes">
-                    <a class="button" href="edit.jsp" type="submit" name="Edit">
+                    <a class="button" href="edit.jsp" type="submit">Edit</a>
                 </td>
                 </tr>
             </table>
