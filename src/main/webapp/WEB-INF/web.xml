@@ -53,10 +53,6 @@
         <url-pattern>/Validator</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>UpdateServlet</servlet-name>
-        <url-pattern>/UpdateServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>EditServlet</servlet-name>
         <url-pattern>/EditServlet</url-pattern>
     </servlet-mapping>
