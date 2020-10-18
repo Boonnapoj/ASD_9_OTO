@@ -26,7 +26,10 @@ public class ConnServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         MongoClient db = connector.getClient();
-        String status = (db != null) ? "Connected tp mLab" : "Disconnected from mLab";
+        String status;
+        if  (db != null) {
+         status =  "Connected tp mLab"; }
+        else { status = "Disconnected from mLab"; }
         
         session.setAttribute("status", status);
         session.setAttribute("connector", connector);
