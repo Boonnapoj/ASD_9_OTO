@@ -59,6 +59,7 @@ public class RegisterServlet extends HttpServlet {
             } catch (MongoException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
+            manager.add(user);
             session.setAttribute("user", user);
             request.getRequestDispatcher("main.jsp").include(request, response);
 
