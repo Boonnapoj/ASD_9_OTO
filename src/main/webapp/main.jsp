@@ -9,17 +9,19 @@
     </head>
     <body>
         <h1>Order Takeaway Online</h1>
-            <%
-                User user = (User) session.getAttribute("user");
-                String email = user.getEmail();
-                String pass = user.getPassword();
-                String perm = user.getPermission();     
-            %>
-            
+        <%
+            User user = (User) session.getAttribute("user");
+            String email = user.getEmail();
+            String pass = user.getPassword();
+            String perm = user.getPermission();
+        %>
+
         <h2>User Dashboard</h2>
         <hr>
         <div class="main_btn">
-            <a class="button" href="EditServlet">Account Edit</a>
+            <form action="EditServlet" method="post">
+                <input class="button" type="submit" value="Account Edit">
+            </form>
             <a class="button" href="order.jsp">Order Management</a>
             <a class="button" href="LogoutServlet">Logout</a>
         </div>
@@ -28,26 +30,26 @@
             <i>You are logged in as ${user.name} &lt; ${user.email} &gt; &lt; ${user.permission} &gt;</i>
         </p>
         <div>
-           
-           
-             <form action="ReadRestaurantServlet" method="post">
-            <table>
-                <tr><td>Search Condition</td></tr>
-                <tr><td>Restaurant Name:</td><td><input type="text" placeholder="Search by Name" name="Rname"></td></tr>
-                <tr><input class="button" type="submit" value="Search"></tr>
-            </table>
+
+
+            <form action="ReadRestaurantServlet" method="post">
+                <table>
+                    <tr><td>Search Condition</td></tr>
+                    <tr><td>Restaurant Name:</td><td><input type="text" placeholder="Search by Name" name="Rname"></td></tr>
+                    <tr><input class="button" type="submit" value="Search"></tr>
+                </table>
             </form> 
-        
-          <% if (perm.equals("customer")) { %>
-           <jsp:include page="catalogue_customer.jsp" flush="true" />
-           <% } else { %>
-                
-           <jsp:include page="catalogue_staff.jsp" flush="true" /> 
-           <% } %> 
-     
-            
+
+            <% if (perm.equals("customer")) { %>
+            <jsp:include page="catalogue_customer.jsp" flush="true" />
+            <% } else { %>
+
+            <jsp:include page="catalogue_staff.jsp" flush="true" /> 
+            <% }%> 
+
+
         </div>
-        
-       
+
+
     </body>
 </html>

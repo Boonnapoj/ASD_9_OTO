@@ -30,7 +30,6 @@ public class EditServlet extends HttpServlet {
         Validator validator = new Validator();
         String name = request.getParameter("name");
         String password = request.getParameter("password");
-
         MongoDBConnector manager = (MongoDBConnector) session.getAttribute("manager");
         User user = (User) session.getAttribute("user");
         validator.clear(session);
