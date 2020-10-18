@@ -34,7 +34,7 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         String status = "active";
         String permission = "customer";
-        
+
         MongoDBConnector manager = (MongoDBConnector) session.getAttribute("manager");
         validator.clear(session);
 
@@ -49,17 +49,18 @@ public class RegisterServlet extends HttpServlet {
             request.getRequestDispatcher("register.jsp").include(request, response);
         } else {
             try {
-                if (manager.getUser(email) != null) {
-                    session.setAttribute("existErr", "User already exists in the Database");
-                    request.getRequestDispatcher("register.jsp").include(request, response);
-                } else {
-                    User user = new User(email, name, password, status, permission);
-                    manager.add(user);
-                    session.setAttribute("user", user);
-                    request.getRequestDispatcher("main.jsp").include(request, response);
-                }
+                manager.getUser(email);
             } catch (MongoException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if (manager.getUser(email) != null) {
+                session.setAttribute("existErr", "User already exists in the Database");
+                request.getRequestDispatcher("register.jsp").include(request, response);
+            } else {
+                User user = new User(email, name, password, status, permission);
+                manager.add(user);
+                session.setAttribute("user", user);
+                request.getRequestDispatcher("main.jsp").include(request, response);
             }
         }
     }
