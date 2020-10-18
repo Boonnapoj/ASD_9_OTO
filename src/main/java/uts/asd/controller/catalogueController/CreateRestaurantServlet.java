@@ -38,11 +38,14 @@ public class CreateRestaurantServlet extends HttpServlet{
         MongoDBConnector manager = ( MongoDBConnector) session.getAttribute("manager");
         
         try {
-            manager.addRestaurant(new Restaurant(name, address, businessHour));
-            request.getRequestDispatcher("main.jsp").include(request, response);
+            
         } catch (MongoException ex) {
             Logger.getLogger(ReadRestaurantServlet.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex.getCode() + " and " + ex.getMessage());
+        }
+        finally {
+            manager.addRestaurant(new Restaurant(name, address, businessHour));
+            request.getRequestDispatcher("main.jsp").include(request, response);
         }
     }
     

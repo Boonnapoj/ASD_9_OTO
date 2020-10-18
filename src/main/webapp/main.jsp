@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="css/demo.css">
         <title>Main Page</title>
     </head>
-    <body>
+    <body onload="startTime()">
         <h1>Order Takeaway Online</h1>
         <%
             User user = (User) session.getAttribute("user");

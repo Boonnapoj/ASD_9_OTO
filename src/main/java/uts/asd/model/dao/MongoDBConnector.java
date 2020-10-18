@@ -113,9 +113,9 @@ public class MongoDBConnector {
         return db;
     }
      public void addRestaurant(Restaurant restaurant) {
-        restaurants.add(new Document("_id", (restaurants.size()+1)).append("RName", restaurant.getName()).append("Address", restaurant.getAddress()).append("BusinessHour", restaurant.getBusinessHour()));
         MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
-        restaurantlist.insertMany(restaurants);
+        Document doc = new Document("_id", (((int)restaurantlist.count())+1)).append("RName", restaurant.getName()).append("Address", restaurant.getAddress()).append("BusinessHour", restaurant.getBusinessHour());
+        restaurantlist.insertOne(doc);
     }
      public Document findByRestaurantName(String name){
         MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");

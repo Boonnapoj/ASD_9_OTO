@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="css/demo.css">
         <title>Account Page</title>
     </head>
-    <body>
+    <body onload="startTime()">
         <%
             User user = (User) session.getAttribute("user");
             String nameErr = (String) session.getAttribute("nameErr");
