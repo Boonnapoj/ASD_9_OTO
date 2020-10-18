@@ -21,8 +21,8 @@
         <form class="form" action="EditServlet" method="post">
             <table>
                 <tr><td>Email:</td><td><input type="text"  name="email" value="${user.getEmail()}" readonly="true"></td></tr>
-                <tr><td>Full Name:</td><td><input type="text" placeholder="<%=(nameErr != null ? nameErr : user.getName())%>" name="name" ></td></tr>
-                <tr><td>Password:</td><td><input type="password" placeholder="<%=(passErr != null ? passErr : user.getPassword())%>" name="password" ></td></tr>
+                <tr><td>Full Name:</td><td><input type="text" placeholder="<%= user.getName()%>" name="newName" ></td></tr>
+                <tr><td>Password:</td><td><input type="password" placeholder="<%= user.getPassword()%>" name="newPassword" ></td></tr>
                 <td>
                     <!--  <input type="hidden" name="update" value="Update was successful" >-->
                     <input class="button" type="submit" value="Update">

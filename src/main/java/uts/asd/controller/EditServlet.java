@@ -28,8 +28,8 @@ public class EditServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         Validator validator = new Validator();
-        String name = request.getParameter("name");
-        String password = request.getParameter("password");
+        String name = request.getParameter("newName");
+        String password = request.getParameter("newPassword");
         MongoDBConnector manager = (MongoDBConnector) session.getAttribute("manager");
         User user = (User) session.getAttribute("user");
         validator.clear(session);
