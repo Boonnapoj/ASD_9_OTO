@@ -24,6 +24,22 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>uts.asd.controller.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreateRestaurantServlet</servlet-name>
+        <servlet-class>uts.asd.controller.catalogueController.CreateRestaurantServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteRestaurantServlet</servlet-name>
+        <servlet-class>uts.asd.controller.catalogueController.DeleteRestaurantServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReadRestaurantServlet</servlet-name>
+        <servlet-class>uts.asd.controller.catalogueController.ReadRestaurantServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateRestaurantServlet</servlet-name>
+        <servlet-class>uts.asd.controller.catalogueController.UpdateRestaurantServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -37,6 +53,10 @@
         <url-pattern>/Validator</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>UpdateServlet</servlet-name>
+        <url-pattern>/UpdateServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>EditServlet</servlet-name>
         <url-pattern>/EditServlet</url-pattern>
     </servlet-mapping>
@@ -47,6 +67,22 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateRestaurantServlet</servlet-name>
+        <url-pattern>/CreateRestaurantServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteRestaurantServlet</servlet-name>
+        <url-pattern>/DeleteRestaurantServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReadRestaurantServlet</servlet-name>
+        <url-pattern>/ReadRestaurantServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateRestaurantServlet</servlet-name>
+        <url-pattern>/UpdateRestaurantServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
