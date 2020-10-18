@@ -48,20 +48,20 @@ public class RegisterServlet extends HttpServlet {
             session.setAttribute("passErr", "Error: Password format is incorrect");
             request.getRequestDispatcher("register.jsp").include(request, response);
         } else {
+            User user = new User(email, name, password, status, permission);
             try {
-                manager.getUser(email);
+                if (manager.getUser(email) != null) {
+                    session.setAttribute("existErr", "User already exists in the Database");
+                    request.getRequestDispatcher("register.jsp").include(request, response);
+                } else {
+                    manager.add(user);
+                }
             } catch (MongoException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-            if (manager.getUser(email) != null) {
-                session.setAttribute("existErr", "User already exists in the Database");
-                request.getRequestDispatcher("register.jsp").include(request, response);
-            } else {
-                User user = new User(email, name, password, status, permission);
-                manager.add(user);
-                session.setAttribute("user", user);
-                request.getRequestDispatcher("main.jsp").include(request, response);
-            }
+            session.setAttribute("user", user);
+            request.getRequestDispatcher("main.jsp").include(request, response);
+
         }
     }
 }
