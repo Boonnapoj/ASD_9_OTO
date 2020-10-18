@@ -28,7 +28,7 @@
             <i>You are logged in as ${user.name} &lt; ${user.email} &gt; &lt; ${user.permission} &gt;</i>
         </p>
         <div>
-           
+            <h3> test </h3>
            
             <%-- <form action="ReadRestaurantServlet" method="post">
             <table>
