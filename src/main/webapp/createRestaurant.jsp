@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <link rel="stylesheet" href="css/demo.css">
         <title>Create Restaurant</title>
     </head>
     <body>
@@ -17,7 +18,7 @@
             <table>
                 <tr><td>Restaurant Name:</td><td><input type="text" placeholder="Enter Restaurant Name" name="Rname" required></td></tr>
                 <tr><td>Restaurant Address:</td><td><input type="text" placeholder="Enter Restaurant Address" name="Raddress" required></td></tr>
-                <tr><td>Restaurant Business Hour:</td><td><input type="password" placeholder="Enter Business Hour" name="RbusinessHour" required></td></tr>
+                <tr><td>Restaurant Business Hour:</td><td><input type="text" placeholder="Enter Business Hour" name="RbusinessHour" required></td></tr>
 
                     <td><a class="button" href="index.jsp">Cancel</a>
                         <input class="button" type="submit" value="Sign Up">
