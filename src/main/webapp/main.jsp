@@ -19,9 +19,7 @@
         <h2>User Dashboard</h2>
         <hr>
         <div class="main_btn">
-            <form action="EditServlet" method="post">
-                <input class="button" type="submit" value="Account Edit">
-            </form>
+            <a class="button" href="edit.jsp">Edit Account</a>
             <a class="button" href="order.jsp">Order Management</a>
             <a class="button" href="LogoutServlet">Logout</a>
         </div>

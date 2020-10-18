@@ -1,4 +1,3 @@
-
 <%@page import="uts.asd.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,8 +7,7 @@
         <link rel="stylesheet" href="css/demo.css">
         <title>Account Page</title>
     </head>
-    <body >
-        <div><span class="time" id="time" ></span></div>
+    <body>
             <%
                 User user = (User) session.getAttribute("user");
             %>
@@ -33,9 +31,5 @@
                 </tr>
             </table>
         </form>
-
-
-
-
     </body>
 </html>
