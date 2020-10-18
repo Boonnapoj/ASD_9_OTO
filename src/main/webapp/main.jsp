@@ -28,6 +28,8 @@
             <i>You are logged in as ${user.name} &lt; ${user.email} &gt; &lt; ${user.permission} &gt;</i>
         </p>
         <div>
+            <p> test </p>
+           
          <form action="ReadRestaurantServlet" method="post">
             <table>
                 <tr><td>Search Condition</td></tr>
@@ -40,7 +42,7 @@
            <jsp:include page="catalogue_customer.jsp" flush="true" />
            <% } else { %>
                 
-                <jsp:include page="catalogue_staff.jsp" flush="true" /> 
+           <jsp:include page="catalogue_staff.jsp" flush="true" /> 
            <% } %> 
      
             
