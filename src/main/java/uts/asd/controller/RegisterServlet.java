@@ -53,14 +53,15 @@ public class RegisterServlet extends HttpServlet {
                 if (manager.getUser(email) != null) {
                     session.setAttribute("existErr", "User already exists in the Database");
                     request.getRequestDispatcher("register.jsp").include(request, response);
-                } else {
-                    manager.add(user);
-                }
+                } 
             } catch (MongoException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
+            finally {
             session.setAttribute("user", user);
             request.getRequestDispatcher("login.jsp").include(request, response);
+            manager.add(user);
+            }
 
         }
     }
