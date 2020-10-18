@@ -30,13 +30,13 @@
         <div>
 
 
-            <%-- <form action="ReadRestaurantServlet" method="post">
+            <form action="ReadRestaurantServlet" method="post">
                 <table>
                     <tr><td>Search Condition</td></tr>
                     <tr><td>Restaurant Name:</td><td><input type="text" placeholder="Search by Name" name="Rname"></td></tr>
                     <tr><input class="button" type="submit" value="Search"></tr>
                 </table>
-            </form> --%>
+            </form> 
 
             <% if (perm.equals("customer")) { %>
             <jsp:include page="catalogue_customer.jsp" flush="true" />
