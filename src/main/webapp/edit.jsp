@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="css/demo.css">
         <title>Account Page</title>
     </head>
-    <body onload="startTime()">
+    <body>
         <%
             User user = (User) session.getAttribute("user");
             String nameErr = (String) session.getAttribute("nameErr");
@@ -15,7 +15,7 @@
             String update = (String) request.getParameter("update");
             if (update == null) 
             {
-                update = "no";
+                update = "yes";
             }
             if (!update.equals("yes")) { %>
         <h1 class="edit_h1">Edit User Information</h1>

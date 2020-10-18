@@ -40,16 +40,12 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="DeleteRestaurantServlet?id=<%=restaurant.getName()%>">Delete</a>
                                 </td>
-
-
-
                             </tr>
-                            <% } %>
-                            <tr>
-                        <a href="createRestaurant.jsp">Create</a>
-                        </tr>
-                        
+                            <% }%>
                         </tbody>
                     </table>
+                    <div>
+                        <a href="createRestaurant.jsp">Register Restaurant</a>
+                    </div>
                 </body>
                 </html>

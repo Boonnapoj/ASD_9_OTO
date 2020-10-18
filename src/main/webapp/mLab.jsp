@@ -20,7 +20,7 @@
             <form class="form" action="ConnServlet" method="post">
                 <h2>mLab Admin Login: </h2>
                 <% if (status != null) { %>
-                <div> status = <%=status%> </div>    
+                <div>status = ${status}</div>    
                 <% } else { %>
                 <div> status = "Not connect" </div> 
                 <div>   
@@ -30,6 +30,7 @@
                     <input type="password" name="adminpassword" placeholder="Password" required="true">
                 </div>
                 <div>
+                    <input type ="hidden" value="Connected" name="status">
                     <input type="submit" value="Connect" class="button">
                 </div>
                  <% } %>
