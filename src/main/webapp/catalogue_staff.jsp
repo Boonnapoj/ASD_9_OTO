@@ -21,6 +21,9 @@
                     <%
                         ArrayList<Restaurant> restaurants = (ArrayList<Restaurant>) session.getAttribute("restaurants");
                     %>
+                    <div>
+                        <a class="button" href="createRestaurant.jsp">Register Restaurant</a>
+                    </div>
                     <table>
                         <thead>
                         <th>Name</th>
@@ -44,8 +47,6 @@
                             <% }%>
                         </tbody>
                     </table>
-                    <div>
-                        <a class="button" href="createRestaurant.jsp">Register Restaurant</a>
-                    </div>
+                    
                 </body>
                 </html>
