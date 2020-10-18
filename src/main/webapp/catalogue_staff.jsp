@@ -45,7 +45,7 @@
                         </tbody>
                     </table>
                     <div>
-                        <a type="button" href="createRestaurant.jsp">Register Restaurant</a>
+                        <a class="button" href="createRestaurant.jsp">Register Restaurant</a>
                     </div>
                 </body>
                 </html>
