@@ -51,9 +51,9 @@ public class MongoDBConnector {
         db = client.getDatabase(uri.getDatabase());
     }
     public void add(User user) {
-        users.add(new Document("_id", (users.size()+1)).append("Email", user.getEmail()).append("Name", user.getName()).append("Password", user.getPassword()).append("Status", user.getStatus()).append("Permission", user.getPermission()));
+        Document doc = new Document("_id", (users.size()+1)).append("Email", user.getEmail()).append("Name", user.getName()).append("Password", user.getPassword()).append("Status", user.getStatus()).append("Permission", user.getPermission());
         MongoCollection<Document> userlist = db.getCollection("ASD-1-9-OTO");
-        userlist.insertMany(users);
+        userlist.insertOne(doc);
     }
     public Document findByEmail(String email){
         MongoCollection<Document> userlist = db.getCollection("ASD-1-9-OTO");
