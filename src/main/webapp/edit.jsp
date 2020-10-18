@@ -12,10 +12,9 @@
         <div><span class="time" id="time" ></span></div>
             <%
                 User user = (User) session.getAttribute("user");
-                String update = (String)session.getAttribute("update");
             %>
 
-        <h1 class="edit_h1">Edit User Information <span class="message"> <%= (update != null ? update : "updated")%> </span></h1>
+        <h1 class="edit_h1">Edit User Information</h1>
         <div class="main_btn">
             <a class="button" href="main.jsp">Main</a>
             <a class="button" href="logout.jsp">Logout</a>
