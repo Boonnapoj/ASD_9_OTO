@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="css/demo.css">
         <title>Account Page</title>
     </head>
-    <body onload="startTime()">
+    <body >
         <div><span class="time" id="time" ></span></div>
             <%
                 User user = (User) session.getAttribute("user");
