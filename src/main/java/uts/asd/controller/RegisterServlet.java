@@ -56,7 +56,6 @@ public class RegisterServlet extends HttpServlet {
                     User user = new User(email, name, password, status, permission);
                     manager.add(user);
                     session.setAttribute("user", user);
-                    session.setAttribute("permission", "customer");
                     request.getRequestDispatcher("main.jsp").include(request, response);
                 }
             } catch (MongoException ex) {

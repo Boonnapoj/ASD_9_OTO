@@ -23,7 +23,6 @@ public class LoginServlet extends HttpServlet {
         Validator validator = new Validator();
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        String permission = request.getParameter("permission");
         MongoDBConnector manager = (MongoDBConnector) session.getAttribute("manager");
 
 
