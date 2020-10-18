@@ -28,7 +28,7 @@ public class ConnServlet extends HttpServlet {
         MongoClient db = connector.getClient();
         String status;
         if  (db != null) {
-         status =  "Connected tp mLab"; }
+         status =  "Connected to mLab"; }
         else { status = "Disconnected from mLab"; }
         
         session.setAttribute("status", status);
