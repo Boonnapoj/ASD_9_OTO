@@ -28,9 +28,9 @@
             <i>You are logged in as ${user.name} &lt; ${user.email} &gt; &lt; ${user.permission} &gt;</i>
         </p>
         <div>
-            <h3> test </h3>
            
-            <%-- <form action="ReadRestaurantServlet" method="post">
+           
+             <form action="ReadRestaurantServlet" method="post">
             <table>
                 <tr><td>Search Condition</td></tr>
                 <tr><td>Restaurant Name:</td><td><input type="text" placeholder="Search by Name" name="Rname"></td></tr>
@@ -44,7 +44,7 @@
                 
            <jsp:include page="catalogue_staff.jsp" flush="true" /> 
            <% } %> 
-     --%>
+     
             
         </div>
         
