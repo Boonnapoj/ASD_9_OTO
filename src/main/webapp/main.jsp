@@ -19,7 +19,7 @@
         <h2>User Dashboard</h2>
         <hr>
         <div class="main_btn">
-            <a class="button" href="EditServlet?user='<%=user%>'email='<%=email%>'&password='<%=pass%>'&permission='<%=perm%>'">Account</a>
+            <a class="button" href="EditServlet">Account</a>
             <a class="button" href="order.jsp">Order Management</a>
             <a class="button" href="LogoutServlet">Logout</a>
         </div>
