@@ -23,14 +23,14 @@
             <a class="button" href="main.jsp">Main</a>
             <a class="button" href="logout.jsp">Logout</a>
         </div>
-        <form class="form" action="EditServlet" method="post">
+        <form class="form">
             <table>
                 <tr><td>Email:</td><td>${user.getEmail()}</td></tr>
                 <tr><td>Full Name:</td><td>${user.getName()}</td></tr>
                 <tr><td>Password:</td><td>${user.getPassword()}</td></tr>
                 <td>
                     <input type="hidden" name="update" value="yes">
-                    <input class="button" type="submit" value="Edit">
+                    <a class="button" href="edit.jsp" type="submit" value="Edit">
                 </td>
                 </tr>
             </table>
