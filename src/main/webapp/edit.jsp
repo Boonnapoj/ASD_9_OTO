@@ -12,9 +12,12 @@
             User user = (User) session.getAttribute("user");
             String nameErr = (String) session.getAttribute("nameErr");
             String passErr = (String) session.getAttribute("passErr");
-            String update = (String) session.getAttribute("update");
-        %>
-        <% if (!update.equals("yes"))  { %>
+            String update = (String) request.getParameter("update");
+            if (update == null) 
+            {
+                update ="no";
+            }
+            if (!update.equals("yes")) { %>
         <h1 class="edit_h1">Edit User Information</h1>
         <div class="main_btn">
             <a class="button" href="main.jsp">Main</a>
@@ -32,8 +35,8 @@
                 </tr>
             </table>
         </form>
-          <% } else { %>
-         <h1 class="edit_h1">Edit User Information</h1>
+        <% } else {%>
+        <h1 class="edit_h1">Edit User Information</h1>
         <div class="main_btn">
             <a class="button" href="main.jsp">Main</a>
             <a class="button" href="logout.jsp">Logout</a>
@@ -50,6 +53,6 @@
                 </tr>
             </table>
         </form>
-         <% } %>
+        <% }%>
     </body>
 </html>
