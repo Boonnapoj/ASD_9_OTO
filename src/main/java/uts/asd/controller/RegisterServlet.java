@@ -50,19 +50,17 @@ public class RegisterServlet extends HttpServlet {
         } else {
             User user = new User(email, name, password, status, permission);
             try {
-                if (manager.getUser(email) != null) {
-                    session.setAttribute("existErr", "User already exists in the Database");
-                    request.getRequestDispatcher("register.jsp").include(request, response);
-                }
-                else {
-                    
-                }
             } catch (MongoException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
-                manager.add(user);
-                session.setAttribute("user", user);
-                request.getRequestDispatcher("login.jsp").include(request, response);
+                if (manager.getUser(email) != null) {
+                    session.setAttribute("existErr", "User already exists in the Database");
+                    request.getRequestDispatcher("register.jsp").include(request, response);
+                } else {
+                    manager.add(user);
+                    session.setAttribute("user", user);
+                    request.getRequestDispatcher("login.jsp").include(request, response);
+                }
             }
 
         }
