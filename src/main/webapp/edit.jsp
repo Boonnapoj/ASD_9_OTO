@@ -22,18 +22,18 @@
         <form class="form" action="EditServlet" method="post">
             <table>
 
-                <tr><td>Email:</td><td><input type="text"  name="email" value="${user.email}" readonly="true"></td></tr>
-                <tr><td>Full Name:</td><td><input type="text"  name="name" value="${user.name}"></td></tr>
-                <tr><td>Password:</td><td><input type="password"  name="password" value="${user.password}"></td></tr>
-          
-                    <td>
-<!--                        <input type="hidden" name="update" value="Update was successful" >-->
-                        <input class="button" type="submit" value="Update">
-                    </td>
+                <tr><td>Email:</td><td><input type="text"  name="email" value="${user.getEmail()}" readonly="true"></td></tr>
+                <tr><td>Full Name:</td><td><input type="text"  name="name" value="${user.getName()}"></td></tr>
+                <tr><td>Password:</td><td><input type="password"  name="password" value="${user.getPassword()}"></td></tr>
+
+                <td>
+                    <!--                        <input type="hidden" name="update" value="Update was successful" >-->
+                    <input class="button" type="submit" value="Update">
+                </td>
                 </tr>
             </table>
         </form>
-              
+
 
 
 
