@@ -15,17 +15,17 @@
             String passErr = (String) session.getAttribute("passErr");
         %>
 
-        <h1>Sign In <span class="message"> <%=(existErr != null ? existErr : "") %></span></h1>
+        <h1>Sign In <span class="message"> <%=(existErr != null ? existErr : "")%></span></h1>
 
         <form action="LoginServlet" method="post">
             <table>
                 <tr>
                     <td>Email:</td>
-                    <td><input type="text" placeholder="<%=(emailErr != null ? emailErr : "Enter email")%>" name="email"></td>
+                    <td><input type="text" placeholder="<%=(emailErr != null ? emailErr : "Enter email")%>" name="email" required></td>
                 </tr>
                 <tr>
                     <td>Password:</td>
-                    <td><input type="password" placeholder="<%=(passErr != null ? passErr : "Enter password")%>" name="password"></td>
+                    <td><input type="password" placeholder="<%=(passErr != null ? passErr : "Enter password")%>" name="password" required></td>
                 </tr> 
                 <tr>
                     <td></td>
