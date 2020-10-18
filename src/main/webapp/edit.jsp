@@ -8,10 +8,11 @@
         <title>Account Page</title>
     </head>
     <body>
-            <%
-                User user = (User) session.getAttribute("user");
-            %>
-
+        <%
+            User user = (User) session.getAttribute("user");
+            String nameErr = (String) session.getAttribute("nameErr");
+            String passErr = (String) session.getAttribute("passErr");
+        %>
         <h1 class="edit_h1">Edit User Information</h1>
         <div class="main_btn">
             <a class="button" href="main.jsp">Main</a>
@@ -19,13 +20,11 @@
         </div>
         <form class="form" action="EditServlet" method="post">
             <table>
-
                 <tr><td>Email:</td><td><input type="text"  name="email" value="${user.getEmail()}" readonly="true"></td></tr>
-                <tr><td>Full Name:</td><td><input type="text"  name="name" value="${user.getName()}"></td></tr>
-                <tr><td>Password:</td><td><input type="password"  name="password" value="${user.getPassword()}"></td></tr>
-
+                <tr><td>Full Name:</td><td><input type="text" placeholder="<%=(nameErr != null ? nameErr : user.getName())%>" name="name" ></td></tr>
+                <tr><td>Password:</td><td><input type="password" placeholder="<%=(passErr != null ? passErr : user.getPassword())%>" name="password" ></td></tr>
                 <td>
-                    <!--                        <input type="hidden" name="update" value="Update was successful" >-->
+                    <!--  <input type="hidden" name="update" value="Update was successful" >-->
                     <input class="button" type="submit" value="Update">
                 </td>
                 </tr>

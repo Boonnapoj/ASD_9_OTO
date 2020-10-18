@@ -20,7 +20,6 @@
             <table>
                 <tr><td>Email:</td><td><input type="text" placeholder="<%=(emailErr != null ? emailErr : "Enter email")%>" name="email" required></td></tr>
                 <tr><td>Full Name:</td><td><input type="text" placeholder="<%=(nameErr != null ? nameErr : "Enter full name")%>" name="name" required></td></tr>
-
                 <tr><td>Password:</td><td><input type="password" placeholder="<%=(passErr != null ? passErr : "Enter password")%>" name="password" required></td></tr>
 
                     <td><a class="button" href="index.jsp">Cancel</a>
