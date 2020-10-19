@@ -4,17 +4,23 @@
  * and open the template in the editor.
  */
 package uts.asd.model.dao;
+import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
 import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import org.bson.Document;
 import org.bson.conversions.Bson;
@@ -152,8 +158,8 @@ public class MongoDBConnector {
     public ArrayList<Restaurant> findRestaurants(String name) {
         ArrayList<Restaurant> results  = new ArrayList();; 
         MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
-        ArrayList<Document> found = (ArrayList<Document>) restaurantlist.find();
-        for (Document d:found){
+        FindIterable<Document> cursor = restaurantlist.find(Filters.eq("Rname", name));
+        for (Document d : cursor) {
             results.add(getRestaurant(d.getString("Rname")));
         }
         return  results;
