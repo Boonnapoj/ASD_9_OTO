@@ -37,12 +37,12 @@
                                 <td><%=restaurant.getName()%></td>
                                 <td><%=restaurant.getAddress()%></td>
                                 <td><%=restaurant.getBusinessHour()%></td>
-                                <td> 
+                                <%--  <td> 
                                     <a href="updateRestaurant.jsp?name=<%=restaurant.getName()%>
                                        &address=<%=restaurant.getAddress()%>&businessHour=<%=restaurant.getBusinessHour()%>">Update</a>
                                     &nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="DeleteRestaurantServlet?id=<%=restaurant.getName()%>">Delete</a>
-                                </td>
+                                </td> --%>
                             </tr>
                             <% }%>
                         </tbody>

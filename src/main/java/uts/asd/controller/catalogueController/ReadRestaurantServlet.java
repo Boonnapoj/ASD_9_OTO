@@ -36,16 +36,17 @@ public class ReadRestaurantServlet extends HttpServlet {
         
         ArrayList<Restaurant> restaurants = null;
         try {
-            if (name == null){
-            name = "";
-            }
-            
-            restaurants = manager.findRestaurants(name);
-            session.setAttribute("restaurants", restaurants);
-            request.getRequestDispatcher("main.jsp").include(request, response);
         } catch (MongoException ex) {
             Logger.getLogger(ReadRestaurantServlet.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex.getCode() + " and " + ex.getMessage());
+        }
+        finally {
+            if (name == null){
+            name = "";
+            }
+            restaurants = manager.findRestaurants(name);
+            session.setAttribute("restaurants", restaurants);
+            request.getRequestDispatcher("main.jsp").include(request, response);
         }
     }
 }
