@@ -31,7 +31,7 @@ public class ReadRestaurantServlet extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();   
-        String name = request.getParameter("Rname");
+        String name = request.getParameter("RName");
         MongoDBConnector manager = (MongoDBConnector) session.getAttribute("manager");
         
         ArrayList<Restaurant> restaurants = null;

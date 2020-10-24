@@ -33,7 +33,7 @@
             <form action="ReadRestaurantServlet" method="post">
                 <table>
                     <tr><td>Search Condition</td></tr>
-                    <tr><td>Restaurant Name:</td><td><input type="text" placeholder="Search by Name" name="Rname"></td></tr>
+                    <tr><td>Restaurant Name:</td><td><input type="text" placeholder="Search by Name" name="RName"></td></tr>
                     <tr><input class="button" type="submit" value="Search"></tr>
                 </table>
             </form> 

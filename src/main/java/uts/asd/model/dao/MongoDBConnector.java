@@ -177,10 +177,10 @@ public class MongoDBConnector {
         if (name.equals("")) {
             cursor = restaurantlist.find();
         } else {
-            cursor = restaurantlist.find(Filters.eq("Rname", name));
+            cursor = restaurantlist.find(Filters.eq("RName", name));
         }
         for (Document d : cursor) {
-            results.add(getRestaurant(d.getString("Rname")));
+            results.add(getRestaurant(d.getString("RName")));
         }
         return results;
     }
