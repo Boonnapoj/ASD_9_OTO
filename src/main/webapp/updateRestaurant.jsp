@@ -15,9 +15,9 @@
     </head>
     <body>
         <%
-            String name = (String) request.getParameter("RName");
-            String address = (String) request.getParameter("Address");
-            String businessHour = (String) request.getParameter("BusinessHour");
+            String name = request.getParameter("RName");
+            String address = request.getParameter("Address");
+            String businessHour = request.getParameter("BusinessHour");
             Restaurant r = new Restaurant(name, address, businessHour);
             session.setAttribute("restaurant", r);
              %>
