@@ -21,39 +21,36 @@ import javax.servlet.http.HttpServlet;
 import uts.asd.model.Restaurant;
 import uts.asd.model.dao.MongoDBConnector;
 
+public class CreateRestaurantServlet extends HttpServlet {
 
-public class CreateRestaurantServlet extends HttpServlet{
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        HttpSession session = request.getSession();  
-        
+
+        HttpSession session = request.getSession();
+
         String name = request.getParameter("RName");
         String address = request.getParameter("Raddress");
         String businessHour = request.getParameter("RbusinessHour");
         Restaurant restaurant = new Restaurant(name, address, businessHour);
-       
-        
-        MongoDBConnector manager = ( MongoDBConnector) session.getAttribute("manager");
-        
+
+        MongoDBConnector manager = (MongoDBConnector) session.getAttribute("manager");
+
         try {
-            
+
         } catch (MongoException ex) {
             Logger.getLogger(ReadRestaurantServlet.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex.getCode() + " and " + ex.getMessage());
-        }
-        finally {
+        } finally {
             if (manager.getRestaurant(name) != null) {
-            manager.addRestaurant(restaurant);
-            request.getRequestDispatcher("main.jsp").include(request, response);
-           }
-            else {
                 session.setAttribute("rexistErr", "This name already exists in the Database");
                 request.getRequestDispatcher("createRestaurant.jsp").include(request, response);
+            } else {
+                manager.addRestaurant(restaurant);
+                request.getRequestDispatcher("main.jsp").include(request, response);
+
             }
         }
     }
-    
+
 }
