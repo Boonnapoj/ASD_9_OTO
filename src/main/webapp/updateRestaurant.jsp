@@ -18,6 +18,8 @@
             String name = (String) request.getParameter("RName");
             String address = (String) request.getParameter("Address");
             String businessHour = (String) request.getParameter("BusinessHour");
+            Restaurant r = new Restaurant(name, address, businessHour);
+            session.setAttribute("restaurant", r);
              %>
         
         <h1 class="edit_h1">Update Restaurant Information</h1>
