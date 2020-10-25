@@ -146,7 +146,7 @@ public class MongoDBConnector {
         MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
         if (findByRestaurantName(name) != null) {
             Document restaurant = findByRestaurantName(name);
-            Bson updateValue = new Document("RName", name).append("Address", address).append("BusinessHour", businessHour);
+            Bson updateValue = new Document("Address", address).append("BusinessHour", businessHour);
             Bson updateOperation = new Document("$set", updateValue);
             restaurantlist.updateOne(restaurant, updateOperation);
         }
