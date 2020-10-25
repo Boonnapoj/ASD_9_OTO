@@ -21,7 +21,7 @@
             String update = (String) request.getParameter("Rupdate");
             if (update == null) 
             {
-                update = "no";
+                update = "yes";
             }
             if (!update.equals("yes")) { %>
         <h1 class="edit_h1">Edit Restaurant Information</h1>
@@ -31,9 +31,9 @@
         </div>
         <form class="form">
             <table>
-                <tr><td>Restaurant Name:</td><td>${name}}</td></tr>
-                <tr><td>Address:</td><td>${address}</td></tr>
-                <tr><td>Business Hour:</td><td>${bussinessHour}</td></tr>
+                <tr><td>Restaurant Name:</td><td><%=name%></td></tr>
+                <tr><td>Address:</td><td><%=address%></td></tr>
+                <tr><td>Business Hour:</td><td><%=bussinessHour%></td></tr>
                 <td>
                     <input type="hidden" name="Rupdate" value="yes">
                     <a class="button" href="updateRestaurnat.jsp" type="submit">Update</a>
