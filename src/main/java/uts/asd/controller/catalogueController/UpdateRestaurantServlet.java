@@ -32,7 +32,7 @@ public class UpdateRestaurantServlet extends HttpServlet {
         String address = request.getParameter("newRaddress");
         String businessHour = request.getParameter("newRbusinessHour");
         MongoDBConnector manager = (MongoDBConnector) session.getAttribute("manager");
-        Restaurant restaurant = new Restaurant(name, address, businessHour);
+       
 
         try {
         } 
@@ -42,9 +42,9 @@ public class UpdateRestaurantServlet extends HttpServlet {
               
         } 
         finally {
-            session.setAttribute("restaurant", restaurant);
+
             manager.updateByRestaurantName(name, address, businessHour);
-            request.getRequestDispatcher("updateRestaurant.jsp").include(request, response);
+            request.getRequestDispatcher("main.jsp").include(request, response);
         }
 
     }

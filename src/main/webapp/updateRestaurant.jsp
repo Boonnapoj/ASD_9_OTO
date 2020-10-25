@@ -18,31 +18,8 @@
             String name = (String) request.getParameter("RName");
             String address = (String) request.getParameter("address");
             String businessHour = (String) request.getParameter("businessHour");
-            String update = (String) request.getParameter("Rupdate");
-            Restaurant restaurant = (Restaurant) request.getAttribute("restaurant");
-            if (update == null) 
-            {
-                update = "yes";
-            }
-            if (!update.equals("yes")) { %>
-        <h1 class="edit_h1">Edit Restaurant Information</h1>
-        <div class="main_btn">
-            <a class="button" href="main.jsp">Main</a>
-            <a class="button" href="logout.jsp">Logout</a>
-        </div>
-        <form class="form">
-            <table>
-                <tr><td>Restaurant Name:</td><td>${restaurant.getName()}</td></tr>
-                <tr><td>Address:</td><td>${restaurant.getAddress()}</td></tr>   
-                <tr><td>Business Hour:</td><td>${restaurant.getBusinessHour()}</td></tr>
-                <td>
-                    <input type="hidden" name="Rupdate" value="yes">
-                    <a class="button" href="updateRestaurant.jsp" type="submit">Update</a>
-                </td>
-                </tr>
-            </table>
-        </form>
-        <% } else {%>
+             %>
+        
         <h1 class="edit_h1">Edit User Information</h1>
         <div class="main_btn">
             <a class="button" href="main.jsp">Main</a>
@@ -60,6 +37,6 @@
                 </tr>
             </table>
         </form>
-        <% }%>
+        
     </body>
 </html>
