@@ -29,8 +29,8 @@ public class UpdateRestaurantServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         String name = request.getParameter("RName");
-        String address = request.getParameter("newRaddress");
-        String businessHour = request.getParameter("newRbusinessHour");
+        String address = request.getParameter("newRAddress");
+        String businessHour = request.getParameter("newRBusinessHour");
         MongoDBConnector manager = (MongoDBConnector) session.getAttribute("manager");
        
 
