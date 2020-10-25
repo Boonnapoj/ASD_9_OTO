@@ -33,7 +33,8 @@ public class CreateRestaurantServlet extends HttpServlet{
         String name = request.getParameter("RName");
         String address = request.getParameter("Raddress");
         String businessHour = request.getParameter("RbusinessHour");
-        Restaurant restaurant = new Restaurant(name, address, businessHour);
+        boolean active = true;
+        Restaurant restaurant = new Restaurant(name, address, businessHour, active);
        
         
         MongoDBConnector manager = ( MongoDBConnector) session.getAttribute("manager");

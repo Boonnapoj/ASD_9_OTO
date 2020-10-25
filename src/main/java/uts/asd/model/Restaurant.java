@@ -13,12 +13,14 @@ public class Restaurant {
     private String name;
     private String address;
     private String businessHour;
+    private boolean active;
     
-    public Restaurant(String name, String address, String businessHour)
+    public Restaurant(String name, String address, String businessHour, boolean active)
     {
         this.name = name;
         this.address = address;
-        this. businessHour = businessHour;
+        this.businessHour = businessHour;
+        this.active = active;
     }
 
     public String getName() {
@@ -43,6 +45,14 @@ public class Restaurant {
 
     public void setBusinessHour(String businessHour) {
         this.businessHour = businessHour;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
     
 }

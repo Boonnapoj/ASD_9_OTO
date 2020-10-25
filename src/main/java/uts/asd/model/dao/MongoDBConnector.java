@@ -131,7 +131,7 @@ public class MongoDBConnector {
 
     public void addRestaurant(Restaurant restaurant) {
         MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
-        Document doc = new Document("_id", (((int) restaurantlist.count()) + 1)).append("RName", restaurant.getName()).append("Address", restaurant.getAddress()).append("BusinessHour", restaurant.getBusinessHour());
+        Document doc = new Document("_id", (((int) restaurantlist.count()) + 1)).append("RName", restaurant.getName()).append("Address", restaurant.getAddress()).append("BusinessHour", restaurant.getBusinessHour()).append("Active", restaurant.isActive());
         restaurantlist.insertOne(doc);
     }
 
@@ -154,9 +154,13 @@ public class MongoDBConnector {
 
     public void deleteRestaurant(String name) {
         MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
+         Restaurant restaurant = null;
         if (findByRestaurantName(name) != null) {
-            Document restaurant = findByRestaurantName(name);
-            restaurantlist.deleteOne(restaurant);
+            Document found = findByRestaurantName(name);
+            restaurant = new Restaurant(name, found.getString("Address"), found.getString("BusinessHour"), found.getBoolean("Active"));
+            Bson updateValue = new Document("RName", name).append("Address", restaurant.getAddress()).append("BusinessHour", restaurant.getBusinessHour()).append("Active", false);
+            Bson updateOperation = new Document("$set", updateValue);
+            restaurantlist.updateOne(found, updateOperation);
         }
     }
 
@@ -165,12 +169,14 @@ public class MongoDBConnector {
         Restaurant restaurant = null;
         if (findByRestaurantName(name) != null) {
             Document found = findByRestaurantName(name);
-            restaurant = new Restaurant(name, found.getString("Address"), found.getString("BusinessHour"));
+            restaurant = new Restaurant(name, found.getString("Address"), found.getString("BusinessHour"), found.getBoolean("Active"));
+            
         }
         return restaurant;
     }
 
     public ArrayList<Restaurant> findRestaurants(String name) {
+        ArrayList<Restaurant> filter = new ArrayList();
         ArrayList<Restaurant> results = new ArrayList();
         MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
         FindIterable<Document> cursor;
@@ -180,7 +186,12 @@ public class MongoDBConnector {
             cursor = restaurantlist.find(Filters.eq("RName", name));
         }
         for (Document d : cursor) {
-            results.add(getRestaurant(d.getString("RName")));
+            filter.add(getRestaurant(d.getString("RName")));
+        }
+        for (Restaurant r : filter) {
+            if (r.isActive()){
+                results.add(r);
+            }
         }
         return results;
     }
