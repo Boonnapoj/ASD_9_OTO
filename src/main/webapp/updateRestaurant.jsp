@@ -21,7 +21,7 @@
             String update = (String) request.getParameter("Rupdate");
             if (update == null) 
             {
-                update = "yes";
+                update = "no";
             }
             if (!update.equals("yes")) { %>
         <h1 class="edit_h1">Edit Restaurant Information</h1>
