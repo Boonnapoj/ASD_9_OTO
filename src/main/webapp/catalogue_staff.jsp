@@ -40,7 +40,7 @@
                                 <td>Check Food</td>
                                 <td> 
                                     <a href="updateRestaurant.jsp?RName=<%=restaurant.getName()%>
-                                       &address=<%=restaurant.getAddress()%>&businessHour=<%=restaurant.getBusinessHour()%>">Update</a>
+                                       &Address=<%=restaurant.getAddress()%>&BusinessHour=<%=restaurant.getBusinessHour()%>">Update</a>
                                 </td>
                                 <td>
                                     <a href="DeleteRestaurantServlet?RName=<%=restaurant.getName()%>">Delete</a>

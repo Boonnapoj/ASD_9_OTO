@@ -16,8 +16,8 @@
     <body>
         <%
             String name = (String) request.getParameter("RName");
-            String address = (String) request.getParameter("address");
-            String businessHour = (String) request.getParameter("businessHour");
+            String address = (String) request.getParameter("Address");
+            String businessHour = (String) request.getParameter("BusinessHour");
              %>
         
         <h1 class="edit_h1">Update Restaurant Information</h1>
@@ -28,8 +28,8 @@
         <form class="form" action="UpdateRestaurantServlet" method="post">
             <table>
                 <tr><td>Restaurant Name:</td><td><input type="text"  name="RName" value="<%=name%>" readonly="true"></td></tr>
-                <tr><td>Address:</td><td><input type="text" name="newRAddress"  value="<%=address%>"  required ></td></tr>
-                <tr><td>Business Hour:</td><td><input type="text" name="newRBusinessHour" value="<%=businessHour%>" required></td></tr>
+                <tr><td>Address:</td><td><input type="text" name="Address"  value="<%=address%>"  required ></td></tr>
+                <tr><td>Business Hour:</td><td><input type="text" name="BusinessHour" value="<%=businessHour%>" required></td></tr>
                 <td>
                     <input class="button" type="submit" value="Update">
                 </td>
