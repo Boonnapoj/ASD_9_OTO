@@ -34,7 +34,7 @@
                 <table>
                     <tr><td>Search Condition</td></tr>
                     <tr><td>Restaurant Name:</td><td><input type="text" placeholder="Search by Name" name="RName"></td></tr>
-                    <tr><input class="button" type="submit" value="Search"></tr>
+                    <tr><td><input class="button" type="submit" value="Search"></td></tr>
                 </table>
             </form> 
 
