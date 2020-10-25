@@ -34,7 +34,7 @@ public class ReadRestaurantServlet extends HttpServlet {
         String name = request.getParameter("RName");
         MongoDBConnector manager = (MongoDBConnector) session.getAttribute("manager");
         
-        ArrayList<Restaurant> restaurants = null;
+        ArrayList<Restaurant> restaurants = new ArrayList<>();
         try {
             if (name == null){
             name = "";

@@ -16,11 +16,13 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Aggregates;
 import com.mongodb.client.model.Filters;
 import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import org.bson.Document;
@@ -136,20 +138,13 @@ public class MongoDBConnector {
     }
 
     public Document findByRestaurantName(String name) {
-        Document result = null;
+       
         MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
-        FindIterable<Document> found = restaurantlist.find(new Document("RName", name));
-        ArrayList<Document> results = new ArrayList<>();
-        for (Document d : found) {
-          if (d.getBoolean("Active").equals("true"))
-        { 
-               results.add(d);
-        }
-        }
-        if (results.size() != 0) 
-        {
-         result = results.get(0);
-        }
+         Document result = restaurantlist.aggregate(
+                Arrays.asList(
+                        Aggregates.match(Filters.eq("RName", name)),
+                        Aggregates.match(Filters.and(Filters.eq("Active", true)))
+                        )).first();
         return result;
     }
 
