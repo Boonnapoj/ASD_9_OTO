@@ -20,7 +20,7 @@
             String businessHour = (String) request.getParameter("businessHour");
              %>
         
-        <h1 class="edit_h1">Edit User Information</h1>
+        <h1 class="edit_h1">Update Restaurant Information</h1>
         <div class="main_btn">
             <a class="button" href="main.jsp">Main</a>
             <a class="button" href="logout.jsp">Logout</a>
