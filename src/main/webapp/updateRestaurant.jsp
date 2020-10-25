@@ -19,6 +19,7 @@
             String address = (String) request.getParameter("address");
             String businessHour = (String) request.getParameter("businessHour");
             String update = (String) request.getParameter("Rupdate");
+            Restaurant restaurant = (Restaurant) request.getAttribute("restaurant");
             if (update == null) 
             {
                 update = "yes";
@@ -31,9 +32,9 @@
         </div>
         <form class="form">
             <table>
-                <tr><td>Restaurant Name:</td><td><%=name%></td></tr>
-                <tr><td>Address:</td><td><%=address%></td></tr>
-                <tr><td>Business Hour:</td><td><%=businessHour%></td></tr>
+                <tr><td>Restaurant Name:</td><td>${restaurant.getName()}</td></tr>
+                <tr><td>Address:</td><td>${restaurant.getAddress()}</td></tr>
+                <tr><td>Business Hour:</td><td>${restaurant.getBusinessHour()}</td></tr>
                 <td>
                     <input type="hidden" name="Rupdate" value="yes">
                     <a class="button" href="updateRestaurnat.jsp" type="submit">Update</a>
