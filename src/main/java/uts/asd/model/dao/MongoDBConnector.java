@@ -139,14 +139,14 @@ public class MongoDBConnector {
         Document result = null;
         MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
         FindIterable<Document> found = restaurantlist.find(new Document("RName", name));
-        ArrayList<Document> results = null;
+        ArrayList<Document> results = new ArrayList<Document>();
         for (Document d : found) {
-        if (d.getBoolean("Active") == true)
+          if (d.getBoolean("Active") == true)
         { 
-                results.add(d); 
+               results.add(d);
         }
         }
-        if (results.get(0) != null) 
+        if (results.isEmpty()) 
         {
          result = results.get(0);
         }
