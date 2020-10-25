@@ -142,8 +142,9 @@ public class MongoDBConnector {
         MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
          Document result = restaurantlist.aggregate(
                 Arrays.asList(
-                        Aggregates.match(Filters.eq("RName", name)))
-                        ).first();
+                        Aggregates.match(Filters.eq("RName", name)),
+                        Aggregates.match(Filters.or(Filters.eq("Active", true)))
+                        )).first();
         return result;
     }
 
