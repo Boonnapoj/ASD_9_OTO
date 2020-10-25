@@ -146,7 +146,7 @@ public class MongoDBConnector {
                results.add(d);
         }
         }
-        if (results.isEmpty()) 
+        if (results.size() != 0) 
         {
          result = results.get(0);
         }
