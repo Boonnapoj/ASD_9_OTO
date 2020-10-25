@@ -133,21 +133,15 @@ public class MongoDBConnector {
 
     public void addRestaurant(Restaurant restaurant) {
         MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
-        Document doc = new Document("_id", (((int) restaurantlist.count()) + 1)).append("RName", restaurant.getName()).append("Address", restaurant.getAddress()).append("BusinessHour", restaurant.getBusinessHour()).append("Active", restaurant.isActive());
+        Document doc = new Document("RName", restaurant.getName()).append("Address", restaurant.getAddress()).append("BusinessHour", restaurant.getBusinessHour());
         restaurantlist.insertOne(doc);
     }
 
-    public Document findByRestaurantName(String name) {
-       
+      public Document findByRestaurantName(String name) {
         MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
-         Document result = restaurantlist.aggregate(
-                Arrays.asList(
-                        Aggregates.match(Filters.eq("RName", name)),
-                        Aggregates.match(Filters.or(Filters.eq("Active", true)))
-                        )).first();
-        return result;
+        Document found = (Document) restaurantlist.find(new Document("RName", name)).first();
+        return found;
     }
-
     public void updateByRestaurantName(String name, String address, String businessHour) {
         MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
         if (findByRestaurantName(name) != null) {
@@ -161,14 +155,8 @@ public class MongoDBConnector {
 
     public void deleteRestaurant(String name) {
         MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
-         Restaurant restaurant = null;
-        if (findByRestaurantName(name) != null) {
-            Document found = findByRestaurantName(name);
-            restaurant = new Restaurant(name, found.getString("Address"), found.getString("BusinessHour"), found.getBoolean("Active"));
-            Bson updateValue = new Document("RName", name).append("Address", restaurant.getAddress()).append("BusinessHour", restaurant.getBusinessHour()).append("Active", false);
-            Bson updateOperation = new Document("$set", updateValue);
-            restaurantlist.updateOne(found, updateOperation);
-        }
+         Document restaurant = findByRestaurantName(name);
+            restaurantlist.deleteOne(restaurant);
     }
 
     public Restaurant getRestaurant(String name) {
@@ -176,9 +164,8 @@ public class MongoDBConnector {
         Restaurant restaurant = null;
         if (findByRestaurantName(name) != null) {
             Document found = findByRestaurantName(name);
-            if (found.getBoolean("Active") == true){
-            restaurant = new Restaurant(name, found.getString("Address"), found.getString("BusinessHour"), found.getBoolean("Active"));
-            }
+            restaurant = new Restaurant(name, found.getString("Address"), found.getString("BusinessHour"));
+            
         }
         return restaurant;
     }
