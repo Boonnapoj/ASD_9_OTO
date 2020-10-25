@@ -47,7 +47,8 @@ public class UpdateRestaurantServlet extends HttpServlet {
         } 
         finally {
              r = manager.getRestaurant(r.getName());
-            manager.updateByRestaurantName(r.getName(), address, businessHour);
+             String rname = r.getName();
+            manager.updateByRestaurantName(rname, address, businessHour);
            
             request.getRequestDispatcher("main.jsp").include(request, response);
         }
