@@ -33,11 +33,11 @@
         <form class="form">
             <table>
                 <tr><td>Restaurant Name:</td><td>${restaurant.getName()}</td></tr>
-                <tr><td>Address:</td><td>${restaurant.getAddress()}</td></tr>
+                <tr><td>Address:</td><td>${restaurant.getAddress()}</td></tr>   
                 <tr><td>Business Hour:</td><td>${restaurant.getBusinessHour()}</td></tr>
                 <td>
                     <input type="hidden" name="Rupdate" value="yes">
-                    <a class="button" href="updateRestaurnat.jsp" type="submit">Update</a>
+                    <a class="button" href="updateRestaurant.jsp" type="submit">Update</a>
                 </td>
                 </tr>
             </table>
