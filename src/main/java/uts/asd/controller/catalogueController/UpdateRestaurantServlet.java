@@ -34,7 +34,9 @@ public class UpdateRestaurantServlet extends HttpServlet {
         MongoDBConnector manager = (MongoDBConnector) session.getAttribute("manager");
        
 
-        try {
+        try { 
+            manager.updateByRestaurantName(name, address, businessHour);
+            request.getRequestDispatcher("main.jsp").include(request, response);
         } 
         catch (MongoException ex) {
             Logger.getLogger(ReadRestaurantServlet.class.getName()).log(Level.SEVERE, null, ex);
