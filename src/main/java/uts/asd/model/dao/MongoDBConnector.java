@@ -176,7 +176,7 @@ public class MongoDBConnector {
         Restaurant restaurant = null;
         if (findByRestaurantName(name) != null) {
             Document found = findByRestaurantName(name);
-            if (found.getBoolean("Active")){
+            if (found.getBoolean("Active") == true){
             restaurant = new Restaurant(name, found.getString("Address"), found.getString("BusinessHour"), found.getBoolean("Active"));
             }
         }
