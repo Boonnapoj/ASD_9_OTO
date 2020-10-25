@@ -17,7 +17,7 @@
         <%
             String name = (String) request.getParameter("RName");
             String address = (String) request.getParameter("address");
-            String bussinessHour = (String) request.getParameter("bussinessHour");
+            String businessHour = (String) request.getParameter("bussinessHour");
             String update = (String) request.getParameter("Rupdate");
             if (update == null) 
             {
