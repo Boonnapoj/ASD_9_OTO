@@ -10,18 +10,30 @@ package uts.asd.model;
  * @author diamo
  */
 public class Food {
+    private String rname;
     private String name;
     private String type;
     private int stock;
     private double price;
     
-    public Food(String name, String type, int stock, double price){
+    
+    public Food(String rname, String name, String type, int stock, double price){
+            this.rname = rname;
             this.name = name;
             this.type = type;
             this.stock = stock;
             this.price = price;
           
     }
+
+    public String getRname() {
+        return rname;
+    }
+
+    public void setRname(String rname) {
+        this.rname = rname;
+    }
+    
 
     public String getName() {
         return name;

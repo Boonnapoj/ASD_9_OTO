@@ -28,6 +28,8 @@
                         <th>Address</th>
                         <th>Business Hour</th>
                         <th>Check food</th>
+                        <th>Update</th>
+                        <th>Delete</th>
                         </thead>
                         <tbody>
                             <% for (Restaurant restaurant : restaurants) {%>
@@ -35,10 +37,12 @@
                                 <td><%=restaurant.getName()%></td>
                                 <td><%=restaurant.getAddress()%></td>
                                 <td><%=restaurant.getBusinessHour()%></td>
+                                <td>Check Food</td>
                                 <td> 
                                     <a href="updateRestaurant.jsp?RName=<%=restaurant.getName()%>
                                        &address=<%=restaurant.getAddress()%>&businessHour=<%=restaurant.getBusinessHour()%>">Update</a>
-
+                                </td>
+                                <td>
                                     <a href="DeleteRestaurantServlet?RName=<%=restaurant.getName()%>">Delete</a>
                                 </td> 
                             </tr>
