@@ -198,9 +198,8 @@ public class MongoDBConnector {
         }
         for (Document d : cursor) {
             Restaurant r = getRestaurant(d.getString("RName"));
-            if (r.isActive()) {
             results.add(r);
-            }
+            
         }
         return results;
     }
