@@ -45,9 +45,7 @@
                             <% }%>
                         </tbody>
                     </table>
-                    <div>
-                        <a class="button" href="createRestaurant.jsp">Register Restaurant</a>
-                    </div>
+                    
 
                 </body>
                 </html>

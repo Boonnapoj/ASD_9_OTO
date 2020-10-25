@@ -41,7 +41,11 @@
             <% if (perm.equals("customer")) { %>
             <jsp:include page="catalogue_customer.jsp" flush="true" />
             <% } else { %>
-            <jsp:include page="catalogue_staff.jsp" flush="true" /> 
+            <div>
+                        <a class="button" href="createRestaurant.jsp">Register Restaurant</a>
+            </div>
+            <jsp:include page="catalogue_staff.jsp" flush="true" />
+            
             <% }%> 
 
 
