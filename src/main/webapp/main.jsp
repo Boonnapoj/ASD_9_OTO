@@ -42,7 +42,7 @@
             <jsp:include page="catalogue_customer.jsp" flush="true" />
             <% } else { %>
             <div>
-                        <a class="button" href="createRestaurant.jsp">Register Restaurant</a>
+            <a class="button" href="createRestaurant.jsp">Register Restaurant</a>
             </div>
             <jsp:include page="catalogue_staff.jsp" flush="true" />
             
