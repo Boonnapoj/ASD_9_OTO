@@ -141,7 +141,7 @@ public class MongoDBConnector {
         FindIterable<Document> found = restaurantlist.find(new Document("RName", name));
         ArrayList<Document> results = new ArrayList<>();
         for (Document d : found) {
-          if (d.getBoolean("Active") == true)
+          if (d.getBoolean("Active").equals("true"))
         { 
                results.add(d);
         }
@@ -199,7 +199,6 @@ public class MongoDBConnector {
         for (Document d : cursor) {
             Restaurant r = getRestaurant(d.getString("RName"));
             results.add(r);
-            
         }
         return results;
     }
