@@ -141,7 +141,7 @@ public class MongoDBConnector {
         return found;
     }
 
-    public void updateRestaurantName(String name, String address, String businessHour) {
+    public void updateByRestaurantName(String name, String address, String businessHour) {
         MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
         if (findByRestaurantName(name) != null) {
             Document restaurant = findByRestaurantName(name);

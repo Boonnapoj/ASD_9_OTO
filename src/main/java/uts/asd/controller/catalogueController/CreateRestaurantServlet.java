@@ -30,7 +30,7 @@ public class CreateRestaurantServlet extends HttpServlet{
         
         HttpSession session = request.getSession();  
         
-        String name = request.getParameter("Rname");
+        String name = request.getParameter("RName");
         String address = request.getParameter("Raddress");
         String businessHour = request.getParameter("RbusinessHour");
         Restaurant restaurant = new Restaurant(name, address, businessHour);

@@ -20,7 +20,7 @@
         </div>
         <form class="form" action="CreateRestaurantServlet" method="post">
             <table>
-                <tr><td>Restaurant Name:</td><td><input type="text" placeholder="Enter Restaurant Name" name="Rname" required></td></tr>
+                <tr><td>Restaurant Name:</td><td><input type="text" placeholder="Enter Restaurant Name" name="RName" required></td></tr>
                 <tr><td>Restaurant Address:</td><td><input type="text" placeholder="Enter Restaurant Address" name="Raddress" required></td></tr>
                 <tr><td>Restaurant Business Hour:</td><td><input type="text" placeholder="Enter Business Hour" name="RbusinessHour" required></td></tr>
 
