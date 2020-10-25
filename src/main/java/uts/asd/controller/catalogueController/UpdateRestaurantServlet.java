@@ -29,8 +29,8 @@ public class UpdateRestaurantServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         String name = request.getParameter("RName");
-        String address = request.getParameter("Address");
-        String businessHour = request.getParameter("BusinessHour");
+        String address = request.getParameter("newAddress");
+        String businessHour = request.getParameter("newBusinessHour");
         MongoDBConnector manager = (MongoDBConnector) session.getAttribute("manager");
         Restaurant r = (Restaurant) session.getAttribute("restaurant");
        
@@ -46,9 +46,9 @@ public class UpdateRestaurantServlet extends HttpServlet {
               
         } 
         finally {
+             r = manager.getRestaurant(r.getName());
             manager.updateByRestaurantName(r.getName(), address, businessHour);
-            r = manager.getRestaurant(r.getName());
-            session.setAttribute("restaurant", r);
+           
             request.getRequestDispatcher("main.jsp").include(request, response);
         }
       

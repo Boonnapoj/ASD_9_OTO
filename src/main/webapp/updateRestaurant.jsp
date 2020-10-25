@@ -30,8 +30,8 @@
         <form class="form" action="UpdateRestaurantServlet" method="post">
             <table>
                 <tr><td>Restaurant Name:</td><td><input type="text"  name="RName" value="<%=name%>" readonly="true"></td></tr>
-                <tr><td>Address:</td><td><input type="text" name="Address"  value="<%=address%>"  required ></td></tr>
-                <tr><td>Business Hour:</td><td><input type="text" name="BusinessHour" value="<%=businessHour%>" required></td></tr>
+                <tr><td>Address:</td><td><input type="text" name="newAddress"  value="<%=address%>"  required ></td></tr>
+                <tr><td>Business Hour:</td><td><input type="text" name="newBusinessHour" value="<%=businessHour%>" required></td></tr>
                 <td>
                     <input class="button" type="submit" value="Update">
                 </td>
