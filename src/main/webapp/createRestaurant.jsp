@@ -13,7 +13,10 @@
         <title>Create Restaurant</title>
     </head>
     <body>
-        <h1 class="reg_h1">Register Restaurant</h1>
+        <%
+            String rexistErr = (String) session.getAttribute("rexistErr");
+        %>
+        <h1 class="reg_h1">Register Restaurant <span class="message"> <%= (rexistErr != null ? rexistErr : "")%></span></h1>
         <div class="main_btn">
             <a class="button" href="main.jsp">Main</a>
             <a class="button" href="LogoutServlet">Logout</a>

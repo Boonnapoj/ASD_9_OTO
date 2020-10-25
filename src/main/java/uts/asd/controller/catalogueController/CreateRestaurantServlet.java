@@ -46,8 +46,14 @@ public class CreateRestaurantServlet extends HttpServlet{
             System.out.println(ex.getCode() + " and " + ex.getMessage());
         }
         finally {
+            if (manager.getRestaurant(name) != null) {
             manager.addRestaurant(restaurant);
             request.getRequestDispatcher("main.jsp").include(request, response);
+           }
+            else {
+                session.setAttribute("rexistErr", "This name already exists in the Database");
+                request.getRequestDispatcher("createRestaurant.jsp").include(request, response);
+            }
         }
     }
     

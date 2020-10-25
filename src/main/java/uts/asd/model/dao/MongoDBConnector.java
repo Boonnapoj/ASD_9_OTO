@@ -136,9 +136,21 @@ public class MongoDBConnector {
     }
 
     public Document findByRestaurantName(String name) {
+        Document result = null;
         MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
-        Document found = (Document) restaurantlist.find(new Document("RName", name)).first();
-        return found;
+        FindIterable<Document> found = restaurantlist.find(new Document("RName", name));
+        ArrayList<Document> results = null;
+        for (Document d : found) {
+        if (d.getBoolean("Active") == true)
+        { 
+                results.add(d); 
+        }
+        }
+        if (results.get(0) != null) 
+        {
+         result = results.get(0);
+        }
+        return result;
     }
 
     public void updateByRestaurantName(String name, String address, String businessHour) {
