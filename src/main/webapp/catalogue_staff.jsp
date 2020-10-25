@@ -21,7 +21,7 @@
                     <%
                         ArrayList<Restaurant> restaurants = (ArrayList<Restaurant>) session.getAttribute("restaurants");
                     %>
-                    
+
                     <table>
                         <thead>
                         <th>Name</th>
@@ -35,19 +35,19 @@
                                 <td><%=restaurant.getName()%></td>
                                 <td><%=restaurant.getAddress()%></td>
                                 <td><%=restaurant.getBusinessHour()%></td>
-                                  <td> 
+                                <td> 
                                     <a href="updateRestaurant.jsp?RName=<%=restaurant.getName()%>
                                        &address=<%=restaurant.getAddress()%>&businessHour=<%=restaurant.getBusinessHour()%>">Update</a>
-                               
+
                                     <a href="DeleteRestaurantServlet?RName=<%=restaurant.getName()%>">Delete</a>
                                 </td> 
                             </tr>
                             <% }%>
                         </tbody>
                     </table>
-                        <div>
+                    <div>
                         <a class="button" href="createRestaurant.jsp">Register Restaurant</a>
                     </div>
-                    
+
                 </body>
                 </html>

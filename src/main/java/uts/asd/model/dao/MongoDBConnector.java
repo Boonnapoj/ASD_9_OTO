@@ -176,7 +176,6 @@ public class MongoDBConnector {
     }
 
     public ArrayList<Restaurant> findRestaurants(String name) {
-        ArrayList<Restaurant> filter = new ArrayList();
         ArrayList<Restaurant> results = new ArrayList();
         MongoCollection<Document> restaurantlist = db.getCollection("ASD-1-9-OTO-Catalogue");
         FindIterable<Document> cursor;
@@ -186,11 +185,9 @@ public class MongoDBConnector {
             cursor = restaurantlist.find(Filters.eq("RName", name));
         }
         for (Document d : cursor) {
-            filter.add(getRestaurant(d.getString("RName")));
-        }
-        for (Restaurant r : filter) {
-            if (r.isActive()){
-                results.add(r);
+            Restaurant r = getRestaurant(d.getString("RName"));
+            if (r.isActive()) {
+            results.add(r);
             }
         }
         return results;
