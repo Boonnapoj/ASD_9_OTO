@@ -28,7 +28,7 @@
                 <tr><td>Restaurant Business Hour:</td><td><input type="text" placeholder="Enter Business Hour" name="RbusinessHour" required></td></tr>
 
                 <td><a class="button" href="main.jsp">Cancel</a>
-                    <input class="button" type="submit" value="Regist">
+                    <input class="button" type="submit" value="Register">
                 </td>
                 </tr>
             </table>
