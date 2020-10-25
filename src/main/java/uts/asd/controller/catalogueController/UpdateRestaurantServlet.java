@@ -29,14 +29,14 @@ public class UpdateRestaurantServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         String name = request.getParameter("RName");
-        String address = request.getParameter("Address");
-        String businessHour = request.getParameter("BusinessHour");
+        String address = request.getParameter("newAddress");
+        String businessHour = request.getParameter("newBusinessHour");
         MongoDBConnector manager = (MongoDBConnector) session.getAttribute("manager");
        
 
         try { 
             manager.updateByRestaurantName(name, address, businessHour);
-            request.getRequestDispatcher("main.jsp").include(request, response);
+            
            
         } 
         catch (MongoException ex) {
@@ -44,6 +44,10 @@ public class UpdateRestaurantServlet extends HttpServlet {
             System.out.println(ex.getCode() + " and " + ex.getMessage());
               
         } 
+        finally {
+            manager.updateByRestaurantName(name, address, businessHour);
+            request.getRequestDispatcher("main.jsp").include(request, response);
+        }
       
 
     }
