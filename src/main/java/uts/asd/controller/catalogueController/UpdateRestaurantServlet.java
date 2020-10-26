@@ -35,8 +35,6 @@ public class UpdateRestaurantServlet extends HttpServlet {
        
 
         try { 
-            manager.updateByRestaurantName(name, address, businessHour);
-            request.getRequestDispatcher("main.jsp").include(request, response);
         
         } 
         catch (MongoException ex) {
@@ -44,6 +42,12 @@ public class UpdateRestaurantServlet extends HttpServlet {
             System.out.println(ex.getCode() + " and " + ex.getMessage());
               
         } 
+        finally {
+            manager.updateByRestaurantName(name, address, businessHour);
+            request.getRequestDispatcher("main.jsp").include(request, response);
+        
+            
+        }
       
 
     }
