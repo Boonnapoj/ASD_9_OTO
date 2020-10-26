@@ -25,7 +25,7 @@
             <a class="button" href="main.jsp">Main</a>
             <a class="button" href="logout.jsp">Logout</a>
         </div>
-        <form class="form" action="UpdateRestaurantServlet" method="post">
+        <form class="form" action="UpdateRestaurantServlet" method="get">
             <table>
                 <td><input type="hidden"  name="RName" value="<%=name%>" ></td>
                 <tr><td>Restaurant Name:</td><td><%=name%></td></tr>
