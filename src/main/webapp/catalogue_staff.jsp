@@ -39,11 +39,11 @@
                                 <td><%=restaurant.getBusinessHour()%></td>
                                 <td>Check Food</td>
                                 <td> 
-                                    <a href="updateRestaurant.jsp?RName=<%=restaurant.getName()%>
+                                    <a class='button' href="updateRestaurant.jsp?RName=<%=restaurant.getName()%>
                                        &Address=<%=restaurant.getAddress()%>&BusinessHour=<%=restaurant.getBusinessHour()%>">Update</a>
                                 </td>
                                 <td>
-                                    <a href="DeleteRestaurantServlet?RName=<%=restaurant.getName()%>">Delete</a>
+                                    <a class='button' href="DeleteRestaurantServlet?RName=<%=restaurant.getName()%>">Delete</a>
                                 </td> 
                             </tr>
                             <% }%>
