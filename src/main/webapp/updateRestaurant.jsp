@@ -4,24 +4,22 @@
     Author     : diamo
 --%>
 
-<%@page import="uts.asd.model.Restaurant"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <link rel="stylesheet" href="css/demo.css">
         <title>Update Restaurant</title>
-         <link rel="stylesheet" href="css/demo.css">
     </head>
     <body>
         <%
             String name = request.getParameter("RName");
             String address = request.getParameter("Address");
             String businessHour = request.getParameter("BusinessHour");
-            Restaurant r = new Restaurant(name, address, businessHour);
-            session.setAttribute("restaurant", r);
-             %>
-        
+        %>
+
         <h1 class="edit_h1">Update Restaurant Information</h1>
         <div class="main_btn">
             <a class="button" href="main.jsp">Main</a>
@@ -38,6 +36,6 @@
                 </tr>
             </table>
         </form>
-        
+
     </body>
 </html>

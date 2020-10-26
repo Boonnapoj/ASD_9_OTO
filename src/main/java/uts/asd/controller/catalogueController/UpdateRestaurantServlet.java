@@ -32,28 +32,21 @@ public class UpdateRestaurantServlet extends HttpServlet {
         String address = request.getParameter("newAddress");
         String businessHour = request.getParameter("newBusinessHour");
         MongoDBConnector manager = (MongoDBConnector) session.getAttribute("manager");
-        Restaurant r = (Restaurant) session.getAttribute("restaurant");
-        Restaurant restaurant = new Restaurant(name, address, businessHour);
        
 
         try { 
             manager.updateByRestaurantName(name, address, businessHour);
-            
-           
+            request.getRequestDispatcher("main.jsp").include(request, response);
+        
         } 
         catch (MongoException ex) {
             Logger.getLogger(ReadRestaurantServlet.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex.getCode() + " and " + ex.getMessage());
               
         } 
-        finally {
-             String rname = name;
-            manager.updateByRestaurantName(rname, address, businessHour);
-           
-            request.getRequestDispatcher("main.jsp").include(request, response);
-        }
       
 
     }
 }
+
 
