@@ -27,7 +27,8 @@
         </div>
         <form class="form" action="UpdateRestaurantServlet" method="post">
             <table>
-                <tr><td>Restaurant Name:</td><td><input type="text"  name="RName" value="<%=name%>" readonly="true"></td></tr>
+                <td><input type="hidden"  name="RName" value="<%=name%>" ></td>
+                <tr><td>Restaurant Name:</td><td><%=name%></td></tr>
                 <tr><td>Address:</td><td><input type="text" name="newAddress"  value="<%=address%>"  required ></td></tr>
                 <tr><td>Business Hour:</td><td><input type="text" name="newBusinessHour" value="<%=businessHour%>" required></td></tr>
                 <td>
